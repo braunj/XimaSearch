@@ -63,7 +63,9 @@
     <tr *ngFor="let u of users">
       <td>{{ u.login }}</td>
       <td>{{ u.id }}</td>
-      <td>{{ u.html_url }}</td>
+      <td>
+        <a href="{{ u.html_url }}">{{ u.html_url }}</a>
+      </td>
     </tr>
   </table>
 </div>
