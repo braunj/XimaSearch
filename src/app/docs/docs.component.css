@@ -1,3 +1,7 @@
 ul {
   text-align: left;
 }
+
+li {
+  margin-top: 5px;
+}

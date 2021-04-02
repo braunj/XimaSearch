@@ -1,1 +1,80 @@
-<p>search works!</p>
+<div class="container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="formBorder">
+    <!-- name -->
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form-label" for="searchName"
+        >Search Name</label
+      >
+      <div class="col-md-8">
+        <input
+          class="form-control"
+          id="searchName"
+          #searchName
+          type="text"
+          placeholder="Enter a search  name"
+          formControlName="searchName"
+          [ngClass]="{
+            'is-invalid':
+              (searchForm.get('searchName')?.touched ||
+                searchForm.get('searchName')?.dirty) &&
+              !searchForm.get('searchName')?.valid
+          }"
+        />
+        <span class="invalid-feedback">
+          <span *ngIf="searchForm.get('searchName')?.errors?.required">
+            Please enter your name.
+          </span>
+          <span *ngIf="searchForm.get('searchName')?.errors?.minlength">
+            Name must be at least 3 letters long!
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <!-- save button -->
+    <div class="form-group row mb-2">
+      <div class="offset-md-2 col-md-4">
+        <button
+          class="btn btn-primary mr-3"
+          type="submit"
+          style="width: 80px"
+          [title]="
+            searchForm.valid ? 'Search' : 'Disabled until form is completed'
+          "
+          [disabled]="!searchForm.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<hr />
+<div>
+  <table>
+    <tr>
+      <th>Login</th>
+      <th>Id</th>
+      <th>URL</th>
+    </tr>
+    <tr *ngFor="let u of users">
+      <td>{{ u.login }}</td>
+      <td>{{ u.id }}</td>
+      <td>{{ u.html_url }}</td>
+    </tr>
+  </table>
+</div>
+<!-- <br />
+<hr />
+Dirty: {{ searchForm.dirty }}
+<br />
+Touched:
+{{ searchForm.touched }}
+<br />
+Valid: {{ searchForm.valid }}
+<br />
+Value:
+{{ searchForm.value | json }}
+<br />
+Mobile:
+{{ searchForm.get("vehicleMobile")?.valid }} -->

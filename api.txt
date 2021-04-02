@@ -1,0 +1,8 @@
+request url
+https://api.github.com/search/users?per_page=5&since=305&q=braunj
+
+header
+simple
+[{"key":"accept","value":"application/vnd.github.v3+json","description":""}]
+text match
+[{"key":"accept","value":"application/vnd.github.v3.text-match+json","description":""}]

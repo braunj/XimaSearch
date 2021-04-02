@@ -1,0 +1,31 @@
+.formBorder {
+  border: solid 1px plum;
+  border-radius: 25px;
+  padding: 1em;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+input {
+  margin: 1em;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+.ng-valid {
+  border: 2px solid green;
+}
+.field-error {
+  border: 1px solid red;
+}
